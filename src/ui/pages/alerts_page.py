@@ -31,9 +31,9 @@ class AlertsPage(QWidget):
         header_row = QHBoxLayout()
         title_box = QVBoxLayout()
         title_lbl = QLabel("Alert Management")
-        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #F8FAFC;")
+        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #172033;")
         sub_lbl = QLabel("Track, acknowledge, and resolve resource warnings with automated duplicate suppression")
-        sub_lbl.setStyleSheet("color: #94A3B8; font-size: 13px;")
+        sub_lbl.setStyleSheet("color: #667085; font-size: 13px;")
         title_box.addWidget(title_lbl)
         title_box.addWidget(sub_lbl)
         header_row.addLayout(title_box)
@@ -53,7 +53,7 @@ class AlertsPage(QWidget):
         toolbar.addWidget(self.search_input, stretch=2)
 
         lbl_status = QLabel("Status:")
-        lbl_status.setStyleSheet("color: #94A3B8; font-weight: 600;")
+        lbl_status.setStyleSheet("color: #667085; font-weight: 600;")
         self.combo_status = QComboBox()
         self.combo_status.addItems(["Unresolved Only", "All Alerts"])
         self.combo_status.currentIndexChanged.connect(self.refresh_alerts)
@@ -61,7 +61,7 @@ class AlertsPage(QWidget):
         toolbar.addWidget(self.combo_status)
 
         lbl_sev = QLabel("Severity:")
-        lbl_sev.setStyleSheet("color: #94A3B8; font-weight: 600;")
+        lbl_sev.setStyleSheet("color: #667085; font-weight: 600;")
         self.combo_sev = QComboBox()
         self.combo_sev.addItems(["All Severities", "Critical", "Warning", "Info"])
         self.combo_sev.currentIndexChanged.connect(self._filter_and_populate)
@@ -161,7 +161,7 @@ class AlertsPage(QWidget):
                 self.table.setCellWidget(row, 6, btn_resolve)
             else:
                 lbl_res = QLabel("Resolved")
-                lbl_res.setStyleSheet("color: #22C55E; font-weight: 600;")
+                lbl_res.setStyleSheet("color: #16A34A; font-weight: 600;")
                 lbl_res.setAlignment(Qt.AlignCenter)
                 self.table.setCellWidget(row, 6, lbl_res)
 

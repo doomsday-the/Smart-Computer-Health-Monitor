@@ -36,9 +36,9 @@ class HistoryPage(QWidget):
         header_row = QHBoxLayout()
         title_box = QVBoxLayout()
         title_lbl = QLabel("Performance History & Analysis")
-        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #F8FAFC;")
+        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #172033;")
         sub_lbl = QLabel("Analyze persistent telemetry trends, usage peaks, and health stability over time")
-        sub_lbl.setStyleSheet("color: #94A3B8; font-size: 13px;")
+        sub_lbl.setStyleSheet("color: #667085; font-size: 13px;")
         title_box.addWidget(title_lbl)
         title_box.addWidget(sub_lbl)
         header_row.addLayout(title_box)
@@ -46,7 +46,7 @@ class HistoryPage(QWidget):
 
         # Window Selector
         lbl_win = QLabel("Time Horizon:")
-        lbl_win.setStyleSheet("color: #94A3B8; font-weight: 600;")
+        lbl_win.setStyleSheet("color: #667085; font-weight: 600;")
         self.combo_window = QComboBox()
         self.combo_window.addItems(["Last 15 Minutes", "Last 1 Hour", "Last 6 Hours", "Last 24 Hours"])
         self.combo_window.setCurrentIndex(1)  # 1 Hour
@@ -91,7 +91,7 @@ class HistoryPage(QWidget):
         chart_layout.setContentsMargins(10, 10, 10, 10)
 
         # Matplotlib Figure with Dark Navy styling
-        self.figure = Figure(figsize=(8, 6), facecolor="#162032")
+        self.figure = Figure(figsize=(8, 6), facecolor="#FFFFFF")
         self.canvas = FigureCanvas(self.figure)
         self.canvas.setMinimumHeight(380)
         chart_layout.addWidget(self.canvas)
@@ -110,9 +110,9 @@ class HistoryPage(QWidget):
         lay = QVBoxLayout(frame)
         lay.setContentsMargins(12, 10, 12, 10)
         t_lbl = QLabel(title)
-        t_lbl.setStyleSheet("color: #94A3B8; font-weight: 600; font-size: 11px;")
+        t_lbl.setStyleSheet("color: #667085; font-weight: 600; font-size: 11px;")
         v_lbl = QLabel(default_val)
-        v_lbl.setStyleSheet("color: #F8FAFC; font-weight: 700; font-size: 13px;")
+        v_lbl.setStyleSheet("color: #172033; font-weight: 700; font-size: 13px;")
         v_lbl.setObjectName("val")
         lay.addWidget(t_lbl)
         lay.addWidget(v_lbl)
@@ -156,14 +156,14 @@ class HistoryPage(QWidget):
         # Apply dark styling to axes
         for ax in (ax1, ax2):
             ax.set_facecolor("#0F172A")
-            ax.tick_params(colors="#94A3B8")
-            ax.grid(True, color="#1E293B", linestyle="--", alpha=0.6)
+            ax.tick_params(colors="#667085")
+            ax.grid(True, color="#172033", linestyle="--", alpha=0.6)
             for spine in ax.spines.values():
-                spine.set_color("#1E2E48")
+                spine.set_color("#E5EAF1")
 
         if not self._current_records:
             ax1.text(0.5, 0.5, "Collecting telemetry data... Continue monitoring to generate historical plots.",
-                     color="#64748B", ha="center", va="center", transform=ax1.transAxes)
+                     color="#98A2B3", ha="center", va="center", transform=ax1.transAxes)
             self.canvas.draw()
             return
 
@@ -185,19 +185,19 @@ class HistoryPage(QWidget):
 
         if timestamps:
             # Subplot 1: CPU & RAM %
-            ax1.plot(timestamps, cpu_vals, label="CPU %", color="#4F8CFF", linewidth=1.8)
-            ax1.plot(timestamps, ram_vals, label="RAM %", color="#38BDF8", linewidth=1.8)
-            ax1.set_ylabel("Utilization (%)", color="#94A3B8", fontsize=9)
+            ax1.plot(timestamps, cpu_vals, label="CPU %", color="#2563EB", linewidth=1.8)
+            ax1.plot(timestamps, ram_vals, label="RAM %", color="#0891B2", linewidth=1.8)
+            ax1.set_ylabel("Utilization (%)", color="#667085", fontsize=9)
             ax1.set_ylim(-2, 105)
-            ax1.legend(facecolor="#162032", edgecolor="#1E293B", labelcolor="#F8FAFC", loc="upper left")
+            ax1.legend(facecolor="#FFFFFF", edgecolor="#172033", labelcolor="#172033", loc="upper left")
 
             # Subplot 2: Health Score (0-100)
-            ax2.plot(timestamps, scores, label="Health Score", color="#22C55E", linewidth=2.0)
-            ax2.axhline(80, color="#22C55E", linestyle=":", alpha=0.5, label="Excellent (>=80)")
-            ax2.axhline(60, color="#F59E0B", linestyle=":", alpha=0.5, label="Warning (<60)")
-            ax2.set_ylabel("Health Score", color="#94A3B8", fontsize=9)
+            ax2.plot(timestamps, scores, label="Health Score", color="#16A34A", linewidth=2.0)
+            ax2.axhline(80, color="#16A34A", linestyle=":", alpha=0.5, label="Excellent (>=80)")
+            ax2.axhline(60, color="#D97706", linestyle=":", alpha=0.5, label="Warning (<60)")
+            ax2.set_ylabel("Health Score", color="#667085", fontsize=9)
             ax2.set_ylim(-2, 105)
-            ax2.legend(facecolor="#162032", edgecolor="#1E293B", labelcolor="#F8FAFC", loc="lower left")
+            ax2.legend(facecolor="#FFFFFF", edgecolor="#172033", labelcolor="#172033", loc="lower left")
 
             ax2.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
             self.figure.autofmt_xdate()

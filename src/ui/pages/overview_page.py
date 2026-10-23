@@ -37,9 +37,9 @@ class OverviewPage(QWidget):
         header_row = QHBoxLayout()
         title_box = QVBoxLayout()
         page_title = QLabel("System Overview")
-        page_title.setStyleSheet("font-size: 22px; font-weight: 700; color: #F8FAFC;")
+        page_title.setStyleSheet("font-size: 22px; font-weight: 700; color: #172033;")
         page_subtitle = QLabel("Intelligent Operating-System Health & Interpretation Dashboard")
-        page_subtitle.setStyleSheet("color: #94A3B8; font-size: 13px;")
+        page_subtitle.setStyleSheet("color: #667085; font-size: 13px;")
         title_box.addWidget(page_title)
         title_box.addWidget(page_subtitle)
         header_row.addLayout(title_box)
@@ -73,9 +73,9 @@ class OverviewPage(QWidget):
         # Left score circle / box
         left_score_box = QVBoxLayout()
         score_tag = QLabel("SYSTEM HEALTH SCORE")
-        score_tag.setStyleSheet("color: #94A3B8; font-weight: 700; font-size: 11px; letter-spacing: 0.5px;")
+        score_tag.setStyleSheet("color: #667085; font-weight: 700; font-size: 11px; letter-spacing: 0.5px;")
         self.score_num = QLabel("100")
-        self.score_num.setStyleSheet("font-size: 48px; font-weight: 800; color: #22C55E;")
+        self.score_num.setStyleSheet("font-size: 48px; font-weight: 800; color: #16A34A;")
         left_score_box.addWidget(score_tag)
         left_score_box.addWidget(self.score_num)
         score_layout.addLayout(left_score_box)
@@ -85,7 +85,7 @@ class OverviewPage(QWidget):
         top_detail_row = QHBoxLayout()
         self.health_badge = StatusBadge("Excellent", "healthy")
         self.updated_lbl = QLabel("Awaiting initial telemetry...")
-        self.updated_lbl.setStyleSheet("color: #64748B; font-size: 12px;")
+        self.updated_lbl.setStyleSheet("color: #98A2B3; font-size: 12px;")
         top_detail_row.addWidget(self.health_badge)
         top_detail_row.addStretch()
         top_detail_row.addWidget(self.updated_lbl)
@@ -95,7 +95,7 @@ class OverviewPage(QWidget):
             "System is operating efficiently. All primary operating system metrics "
             "(CPU, Memory, Storage, Power) are within healthy operational thresholds."
         )
-        self.score_desc.setStyleSheet("color: #CBD5E1; font-size: 13px;")
+        self.score_desc.setStyleSheet("color: #667085; font-size: 13px;")
         self.score_desc.setWordWrap(True)
         right_score_box.addWidget(self.score_desc)
 
@@ -103,7 +103,7 @@ class OverviewPage(QWidget):
             "Note: This score is a research-defined heuristic combining CPU, memory, storage pressure, "
             "and battery state. It is not an official hardware benchmark."
         )
-        disclaimer.setStyleSheet("color: #64748B; font-size: 11px; font-style: italic;")
+        disclaimer.setStyleSheet("color: #98A2B3; font-size: 11px; font-style: italic;")
         disclaimer.setWordWrap(True)
         right_score_box.addWidget(disclaimer)
 
@@ -115,19 +115,19 @@ class OverviewPage(QWidget):
         cards_grid.setSpacing(14)
 
         # 1. CPU Card
-        self.cpu_card = StatCard(title="CPU Utilization", unit="%", chart_color="#4F8CFF")
+        self.cpu_card = StatCard(title="CPU Utilization", unit="%", chart_color="#2563EB")
         cards_grid.addWidget(self.cpu_card, 0, 0)
 
         # 2. RAM Card
-        self.ram_card = StatCard(title="RAM Memory Utilization", unit="%", chart_color="#38BDF8")
+        self.ram_card = StatCard(title="RAM Memory Utilization", unit="%", chart_color="#0891B2")
         cards_grid.addWidget(self.ram_card, 0, 1)
 
         # 3. Disk Card
-        self.disk_card = StatCard(title="System Drive Capacity", unit="%", chart_color="#F59E0B", has_chart=False)
+        self.disk_card = StatCard(title="System Drive Capacity", unit="%", chart_color="#D97706", has_chart=False)
         cards_grid.addWidget(self.disk_card, 1, 0)
 
         # 4. Battery / Power Card
-        self.battery_card = StatCard(title="Power & Battery State", unit="%", chart_color="#22C55E", has_chart=False)
+        self.battery_card = StatCard(title="Power & Battery State", unit="%", chart_color="#16A34A", has_chart=False)
         cards_grid.addWidget(self.battery_card, 1, 1)
 
         self.content_layout.addLayout(cards_grid)
@@ -143,9 +143,9 @@ class OverviewPage(QWidget):
         alerts_layout.setContentsMargins(16, 14, 16, 14)
         alerts_header = QHBoxLayout()
         alerts_title = QLabel("Active Alerts")
-        alerts_title.setStyleSheet("font-size: 15px; font-weight: 700; color: #F8FAFC;")
+        alerts_title.setStyleSheet("font-size: 15px; font-weight: 700; color: #172033;")
         view_all_alerts = QPushButton("View All Alerts →")
-        view_all_alerts.setStyleSheet("background: transparent; color: #4F8CFF; border: none; font-weight: 600;")
+        view_all_alerts.setStyleSheet("background: transparent; color: #2563EB; border: none; font-weight: 600;")
         view_all_alerts.clicked.connect(lambda: self.navigate_requested.emit(4))  # Index 4: Alerts
         alerts_header.addWidget(alerts_title)
         alerts_header.addStretch()
@@ -154,7 +154,7 @@ class OverviewPage(QWidget):
 
         self.alerts_list_layout = QVBoxLayout()
         self.lbl_no_alerts = QLabel("No active unresolved alerts. System status is normal.")
-        self.lbl_no_alerts.setStyleSheet("color: #64748B; font-size: 12px; padding: 12px 0;")
+        self.lbl_no_alerts.setStyleSheet("color: #98A2B3; font-size: 12px; padding: 12px 0;")
         self.alerts_list_layout.addWidget(self.lbl_no_alerts)
         alerts_layout.addLayout(self.alerts_list_layout)
         bottom_row.addWidget(self.alerts_panel, stretch=2)
@@ -165,7 +165,7 @@ class OverviewPage(QWidget):
         actions_layout = QVBoxLayout(actions_panel)
         actions_layout.setContentsMargins(16, 14, 16, 14)
         act_title = QLabel("Quick Navigation")
-        act_title.setStyleSheet("font-size: 15px; font-weight: 700; color: #F8FAFC;")
+        act_title.setStyleSheet("font-size: 15px; font-weight: 700; color: #172033;")
         actions_layout.addWidget(act_title)
 
         btn_proc = QPushButton("Open Process Explorer")
@@ -205,16 +205,16 @@ class OverviewPage(QWidget):
         score_val = score.score
         self.score_num.setText(f"{int(score_val)}")
         if score_val >= 80:
-            self.score_num.setStyleSheet("font-size: 48px; font-weight: 800; color: #22C55E;")
+            self.score_num.setStyleSheet("font-size: 48px; font-weight: 800; color: #16A34A;")
             self.health_badge.set_severity("healthy", "Excellent")
         elif score_val >= 60:
-            self.score_num.setStyleSheet("font-size: 48px; font-weight: 800; color: #38BDF8;")
+            self.score_num.setStyleSheet("font-size: 48px; font-weight: 800; color: #0891B2;")
             self.health_badge.set_severity("good", "Good")
         elif score_val >= 40:
-            self.score_num.setStyleSheet("font-size: 48px; font-weight: 800; color: #F59E0B;")
+            self.score_num.setStyleSheet("font-size: 48px; font-weight: 800; color: #D97706;")
             self.health_badge.set_severity("warning", "Warning")
         else:
-            self.score_num.setStyleSheet("font-size: 48px; font-weight: 800; color: #EF4444;")
+            self.score_num.setStyleSheet("font-size: 48px; font-weight: 800; color: #DC2626;")
             self.health_badge.set_severity("critical", "Critical")
 
         self.score_desc.setText(score.explanation)
@@ -289,13 +289,13 @@ class OverviewPage(QWidget):
 
         if not alerts:
             lbl = QLabel("No active unresolved alerts. System status is normal.")
-            lbl.setStyleSheet("color: #64748B; font-size: 12px; padding: 12px 0;")
+            lbl.setStyleSheet("color: #98A2B3; font-size: 12px; padding: 12px 0;")
             self.alerts_list_layout.addWidget(lbl)
             return
 
         for a in alerts[:3]:
             row = QFrame()
-            row.setStyleSheet("background-color: #111A29; border-radius: 6px; padding: 8px 12px; margin-bottom: 4px;")
+            row.setStyleSheet("background-color: #F8FAFC; border-radius: 6px; padding: 8px 12px; margin-bottom: 4px;")
             r_lay = QHBoxLayout(row)
             r_lay.setContentsMargins(0, 0, 0, 0)
             
@@ -305,12 +305,12 @@ class OverviewPage(QWidget):
 
             msg = getattr(a, 'message', None) or (a.get('message') if isinstance(a, dict) else '')
             lbl = QLabel(msg)
-            lbl.setStyleSheet("color: #E2E8F0; font-size: 12px;")
+            lbl.setStyleSheet("color: #344054; font-size: 12px;")
             lbl.setWordWrap(True)
             r_lay.addWidget(lbl, stretch=1)
 
             btn = QPushButton("Explain →")
-            btn.setStyleSheet("background: transparent; color: #38BDF8; border: none; font-weight: 600; font-size: 11px;")
+            btn.setStyleSheet("background: transparent; color: #0891B2; border: none; font-weight: 600; font-size: 11px;")
             btn.clicked.connect(lambda: self.navigate_requested.emit(3))  # View Insights
             r_lay.addWidget(btn)
 

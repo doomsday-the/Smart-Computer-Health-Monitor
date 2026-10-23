@@ -29,9 +29,9 @@ class HealthInsightsPage(QWidget):
         header_row = QHBoxLayout()
         title_box = QVBoxLayout()
         title_lbl = QLabel("Explainable Health Insights")
-        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #F8FAFC;")
+        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #172033;")
         sub_lbl = QLabel("The Interpretation Layer: Converting raw OS telemetry into evidence-based diagnoses")
-        sub_lbl.setStyleSheet("color: #94A3B8; font-size: 13px;")
+        sub_lbl.setStyleSheet("color: #667085; font-size: 13px;")
         title_box.addWidget(title_lbl)
         title_box.addWidget(sub_lbl)
         header_row.addLayout(title_box)
@@ -39,7 +39,7 @@ class HealthInsightsPage(QWidget):
 
         # Severity Filter
         lbl_filter = QLabel("Filter:")
-        lbl_filter.setStyleSheet("color: #94A3B8; font-weight: 600;")
+        lbl_filter.setStyleSheet("color: #667085; font-weight: 600;")
         self.combo_filter = QComboBox()
         self.combo_filter.addItems(["All Severities", "Critical Only", "Warning Only", "Normal / Info"])
         self.combo_filter.currentIndexChanged.connect(self._render_insights)
@@ -50,7 +50,7 @@ class HealthInsightsPage(QWidget):
 
         # Explanation Banner
         banner = QFrame()
-        banner.setStyleSheet("background-color: #111A29; border-left: 3px solid #4F8CFF; border-radius: 4px; padding: 10px 14px;")
+        banner.setStyleSheet("background-color: #F8FAFC; border-left: 3px solid #2563EB; border-radius: 4px; padding: 10px 14px;")
         b_lay = QVBoxLayout(banner)
         b_lay.setContentsMargins(0, 0, 0, 0)
         b_lbl = QLabel(
@@ -58,7 +58,7 @@ class HealthInsightsPage(QWidget):
             "each card below answers: <i>What happened? What evidence supports it? Why does it matter? "
             "What might have caused it? What safe steps should you take next?</i>"
         )
-        b_lbl.setStyleSheet("color: #E2E8F0; font-size: 12px;")
+        b_lbl.setStyleSheet("color: #344054; font-size: 12px;")
         b_lbl.setWordWrap(True)
         b_lay.addWidget(b_lbl)
         main_layout.addWidget(banner)
@@ -72,7 +72,7 @@ class HealthInsightsPage(QWidget):
         self.cards_layout.setSpacing(14)
 
         self.empty_lbl = QLabel("No abnormal health conditions detected. All monitored resources are operating within healthy parameters.")
-        self.empty_lbl.setStyleSheet("color: #64748B; font-size: 14px; padding: 40px 0;")
+        self.empty_lbl.setStyleSheet("color: #98A2B3; font-size: 14px; padding: 40px 0;")
         self.empty_lbl.setAlignment(Qt.AlignCenter)
         self.cards_layout.addWidget(self.empty_lbl)
 
@@ -105,7 +105,7 @@ class HealthInsightsPage(QWidget):
 
         if not filtered:
             lbl = QLabel("No active insights match the selected filter. System health is normal.")
-            lbl.setStyleSheet("color: #64748B; font-size: 14px; padding: 40px 0;")
+            lbl.setStyleSheet("color: #98A2B3; font-size: 14px; padding: 40px 0;")
             lbl.setAlignment(Qt.AlignCenter)
             self.cards_layout.addWidget(lbl)
             return

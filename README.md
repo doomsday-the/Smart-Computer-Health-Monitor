@@ -1,6 +1,12 @@
 # Smart Computer Health Monitor
 ### An Intelligent, Explainable Operating-System Resource Monitoring Application
 
+## Submission Documents
+
+- [Project presentation](Smart_Computer_Health_Monitor.pptx) - light-theme presentation with GitHub link and code screenshots
+- [Review 9 submission](docs/REVIEW_9_SUBMISSION.md) - presentation, GitHub link, code evidence, and submission checklist
+- [Review 10 project documentation](docs/REVIEW_10_DOCUMENTATION.md) - complete technical and academic documentation
+
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
 [![GUI](https://img.shields.io/badge/GUI-PySide6%20%2F%20Qt6-green.svg)](https://wiki.qt.io/Qt_for_Python)
 [![Database](https://img.shields.io/badge/database-SQLite3-lightgrey.svg)](https://www.sqlite.org/)

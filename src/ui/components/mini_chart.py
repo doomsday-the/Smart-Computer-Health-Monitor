@@ -16,7 +16,7 @@ class RealtimeSparkline(QWidget):
     def __init__(
         self,
         max_points: int = 40,
-        color_hex: str = "#4F8CFF",
+        color_hex: str = "#2563EB",
         min_y: float = 0.0,
         max_y: float = 100.0,
         parent=None
@@ -45,7 +45,7 @@ class RealtimeSparkline(QWidget):
         h = self.height()
 
         if len(self.data) < 2:
-            painter.setPen(QColor("#334155"))
+            painter.setPen(QColor("#98A2B3"))
             painter.drawText(self.rect(), Qt.AlignCenter, "Waiting for data...")
             return
 
@@ -54,7 +54,7 @@ class RealtimeSparkline(QWidget):
         dx = w / (self.max_points - 1)
 
         # Draw subtle background grid lines (25%, 50%, 75%)
-        painter.setPen(QPen(QColor("#1E2E48"), 1, Qt.DotLine))
+        painter.setPen(QPen(QColor("#E5EAF1"), 1, Qt.DotLine))
         for pct in (0.25, 0.5, 0.75):
             y_line = h * (1.0 - pct)
             painter.drawLine(0, int(y_line), w, int(y_line))
@@ -99,5 +99,5 @@ class RealtimeSparkline(QWidget):
         # Highlight latest point
         latest = points[-1]
         painter.setBrush(QBrush(self.color))
-        painter.setPen(QPen(QColor("#FFFFFF"), 1))
+        painter.setPen(QPen(QColor("#2563EB"), 1))
         painter.drawEllipse(latest, 3, 3)

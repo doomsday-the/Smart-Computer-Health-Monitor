@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680">
+  <rect width="1200" height="680" rx="18" fill="#0b1220"/>
+  <rect x="0" y="0" width="1200" height="54" rx="18" fill="#16243a"/>
+  <circle cx="28" cy="27" r="7" fill="#ff5f56"/><circle cx="52" cy="27" r="7" fill="#ffbd2e"/><circle cx="76" cy="27" r="7" fill="#27c93f"/>
+  <text x="110" y="34" fill="#b7c8df" font-family="Segoe UI, sans-serif" font-size="18">main.py</text>
+  <g font-family="Consolas, monospace" font-size="19">
+    <text x="34" y="92" fill="#607895">01</text><text x="72" y="92" fill="#dbeafe">from</text><text x="130" y="92" fill="#7dd3fc"> PySide6.QtWidgets </text><text x="340" y="92" fill="#dbeafe">import QApplication</text>
+    <text x="34" y="128" fill="#607895">02</text><text x="72" y="128" fill="#dbeafe">from</text><text x="130" y="128" fill="#7dd3fc"> src.app </text><text x="250" y="128" fill="#dbeafe">import AppController</text>
+    <text x="34" y="164" fill="#607895">03</text><text x="72" y="164" fill="#dbeafe">from</text><text x="130" y="164" fill="#7dd3fc"> src.ui.main_window </text><text x="350" y="164" fill="#dbeafe">import MainWindow</text>
+    <text x="34" y="218" fill="#607895">04</text><text x="72" y="218" fill="#dbeafe">def</text><text x="122" y="218" fill="#f0abfc">main</text><text x="174" y="218" fill="#dbeafe">():</text>
+    <text x="34" y="254" fill="#607895">05</text><text x="72" y="254" fill="#dbeafe">    setup_logging()</text>
+    <text x="34" y="290" fill="#607895">06</text><text x="72" y="290" fill="#dbeafe">    app = QApplication(sys.argv)</text>
+    <text x="34" y="326" fill="#607895">07</text><text x="72" y="326" fill="#dbeafe">    controller = AppController()</text>
+    <text x="34" y="362" fill="#607895">08</text><text x="72" y="362" fill="#dbeafe">    window = MainWindow(controller)</text>
+    <text x="34" y="398" fill="#607895">09</text><text x="72" y="398" fill="#dbeafe">    window.show()</text>
+    <text x="34" y="434" fill="#607895">10</text><text x="72" y="434" fill="#dbeafe">    sys.exit(app.exec())</text>
+    <text x="34" y="488" fill="#607895">11</text><text x="72" y="488" fill="#dbeafe">if</text><text x="106" y="488" fill="#dbeafe"> __name__ == </text><text x="250" y="488" fill="#a7f3d0">"__main__"</text><text x="370" y="488" fill="#dbeafe">:</text>
+    <text x="34" y="524" fill="#607895">12</text><text x="72" y="524" fill="#dbeafe">    main()</text>
+    <text x="34" y="590" fill="#38bdf8">Application entry point</text><text x="270" y="590" fill="#94a3b8"> • Qt event loop • controller • dashboard</text>
+  </g>
+</svg>

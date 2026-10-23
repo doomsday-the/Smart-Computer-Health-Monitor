@@ -17,7 +17,7 @@ class StatCard(QFrame):
         self,
         title: str,
         unit: str = "%",
-        chart_color: str = "#4F8CFF",
+        chart_color: str = "#2563EB",
         has_chart: bool = True,
         parent=None
     ):
@@ -32,7 +32,7 @@ class StatCard(QFrame):
         # Top row: Title and Badge
         top_row = QHBoxLayout()
         self.title_lbl = QLabel(title)
-        self.title_lbl.setStyleSheet("color: #94A3B8; font-weight: 600; font-size: 13px;")
+        self.title_lbl.setStyleSheet("color: #667085; font-weight: 600; font-size: 13px;")
         self.badge = StatusBadge("Healthy", "healthy")
         top_row.addWidget(self.title_lbl)
         top_row.addStretch()
@@ -42,9 +42,9 @@ class StatCard(QFrame):
         # Middle row: Large Value & Subtitle
         mid_row = QHBoxLayout()
         self.val_lbl = QLabel("--")
-        self.val_lbl.setStyleSheet("color: #F8FAFC; font-size: 26px; font-weight: 700;")
+        self.val_lbl.setStyleSheet("color: #172033; font-size: 26px; font-weight: 700;")
         self.sub_lbl = QLabel("")
-        self.sub_lbl.setStyleSheet("color: #64748B; font-size: 11px;")
+        self.sub_lbl.setStyleSheet("color: #98A2B3; font-size: 11px;")
         mid_row.addWidget(self.val_lbl)
         mid_row.addStretch()
         mid_row.addWidget(self.sub_lbl)
@@ -68,7 +68,7 @@ class StatCard(QFrame):
 
         # Interpretation footer
         self.interp_lbl = QLabel("Monitoring baseline activity...")
-        self.interp_lbl.setStyleSheet("color: #94A3B8; font-size: 11px; margin-top: 4px;")
+        self.interp_lbl.setStyleSheet("color: #667085; font-size: 11px; margin-top: 4px;")
         self.interp_lbl.setWordWrap(True)
         layout.addWidget(self.interp_lbl)
 

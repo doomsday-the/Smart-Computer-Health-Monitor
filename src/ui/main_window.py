@@ -90,13 +90,13 @@ class MainWindow(QMainWindow):
 
         # Monitoring Status Widget in Sidebar
         status_box = QFrame()
-        status_box.setStyleSheet("background-color: #162032; border-radius: 8px; margin: 0 10px; padding: 10px;")
+        status_box.setStyleSheet("background-color: #FFFFFF; border-radius: 8px; margin: 0 10px; padding: 10px;")
         s_lay = QVBoxLayout(status_box)
         s_lay.setContentsMargins(0, 0, 0, 0)
         self.sidebar_mon_lbl = QLabel("● Monitoring Active")
-        self.sidebar_mon_lbl.setStyleSheet("color: #22C55E; font-weight: 600; font-size: 11px;")
+        self.sidebar_mon_lbl.setStyleSheet("color: #16A34A; font-weight: 600; font-size: 11px;")
         self.sidebar_rate_lbl = QLabel(f"Interval: {self.controller.settings.monitoring_interval_sec}s")
-        self.sidebar_rate_lbl.setStyleSheet("color: #64748B; font-size: 11px;")
+        self.sidebar_rate_lbl.setStyleSheet("color: #98A2B3; font-size: 11px;")
         s_lay.addWidget(self.sidebar_mon_lbl)
         s_lay.addWidget(self.sidebar_rate_lbl)
         sidebar_layout.addWidget(status_box)
@@ -132,7 +132,7 @@ class MainWindow(QMainWindow):
         # Setup Status Bar
         self.status_bar = QStatusBar()
         self.setStatusBar(self.status_bar)
-        self.status_bar.setStyleSheet("background-color: #111827; color: #94A3B8; font-size: 11px;")
+        self.status_bar.setStyleSheet("background-color: #FFFFFF; color: #667085; font-size: 11px;")
         self.status_bar.showMessage("Smart Computer Health Monitor loaded • Ready")
 
         # Wire Signals
@@ -206,15 +206,15 @@ class MainWindow(QMainWindow):
         if status == "running":
             self.page_overview.btn_pause_resume.setText("Pause Monitoring")
             self.sidebar_mon_lbl.setText("● Monitoring Active")
-            self.sidebar_mon_lbl.setStyleSheet("color: #22C55E; font-weight: 600; font-size: 11px;")
+            self.sidebar_mon_lbl.setStyleSheet("color: #16A34A; font-weight: 600; font-size: 11px;")
         elif status == "paused":
             self.page_overview.btn_pause_resume.setText("Resume Monitoring")
             self.sidebar_mon_lbl.setText("⏸ Monitoring Paused")
-            self.sidebar_mon_lbl.setStyleSheet("color: #F59E0B; font-weight: 600; font-size: 11px;")
+            self.sidebar_mon_lbl.setStyleSheet("color: #D97706; font-weight: 600; font-size: 11px;")
         elif status == "stopped":
             self.page_overview.btn_pause_resume.setText("Start Monitoring")
             self.sidebar_mon_lbl.setText("⏹ Monitoring Stopped")
-            self.sidebar_mon_lbl.setStyleSheet("color: #EF4444; font-weight: 600; font-size: 11px;")
+            self.sidebar_mon_lbl.setStyleSheet("color: #DC2626; font-weight: 600; font-size: 11px;")
 
     def _toggle_monitoring(self):
         if not self.controller.worker or not self.controller.worker.isRunning():

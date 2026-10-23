@@ -30,13 +30,13 @@ class InsightCard(QFrame):
         header_layout = QHBoxLayout()
         title_text = insight_data.get("title", "Resource Notice")
         self.title_lbl = QLabel(title_text)
-        self.title_lbl.setStyleSheet("font-size: 16px; font-weight: 700; color: #F8FAFC;")
+        self.title_lbl.setStyleSheet("font-size: 16px; font-weight: 700; color: #172033;")
         header_layout.addWidget(self.title_lbl)
         header_layout.addStretch()
 
         resource = insight_data.get("resource", "System")
         self.res_badge = QLabel(f"[{resource}]")
-        self.res_badge.setStyleSheet("color: #38BDF8; font-weight: 600; font-size: 12px;")
+        self.res_badge.setStyleSheet("color: #0891B2; font-weight: 600; font-size: 12px;")
         header_layout.addWidget(self.res_badge)
 
         severity = insight_data.get("severity", "info")
@@ -45,7 +45,7 @@ class InsightCard(QFrame):
 
         status = insight_data.get("status", "new").upper()
         self.status_lbl = QLabel(f"• {status}")
-        self.status_lbl.setStyleSheet("color: #94A3B8; font-size: 11px; font-weight: 600;")
+        self.status_lbl.setStyleSheet("color: #667085; font-size: 11px; font-weight: 600;")
         header_layout.addWidget(self.status_lbl)
 
         layout.addLayout(header_layout)
@@ -54,15 +54,15 @@ class InsightCard(QFrame):
         obs_val = insight_data.get("observed_value", "N/A")
         rule = insight_data.get("rule_triggered", "")
         fact_box = QFrame()
-        fact_box.setStyleSheet("background-color: #111A29; border-radius: 6px; padding: 8px 12px;")
+        fact_box.setStyleSheet("background-color: #F8FAFC; border-radius: 6px; padding: 8px 12px;")
         fact_layout = QVBoxLayout(fact_box)
         fact_layout.setContentsMargins(0, 0, 0, 0)
         fact_layout.setSpacing(3)
 
         lbl_fact_title = QLabel("1. Observed Measurement & Threshold:")
-        lbl_fact_title.setStyleSheet("color: #38BDF8; font-weight: 600; font-size: 11px;")
+        lbl_fact_title.setStyleSheet("color: #0891B2; font-weight: 600; font-size: 11px;")
         lbl_fact_val = QLabel(f"<b>Observed:</b> {obs_val}  |  <b>Rule:</b> {rule}")
-        lbl_fact_val.setStyleSheet("color: #E2E8F0; font-size: 12px;")
+        lbl_fact_val.setStyleSheet("color: #344054; font-size: 12px;")
         lbl_fact_val.setWordWrap(True)
         fact_layout.addWidget(lbl_fact_title)
         fact_layout.addWidget(lbl_fact_val)
@@ -70,39 +70,39 @@ class InsightCard(QFrame):
 
         # 3. Why It Matters (Operating System Context)
         why_title = QLabel("2. Operating System Impact:")
-        why_title.setStyleSheet("color: #94A3B8; font-weight: 600; font-size: 11px; margin-top: 4px;")
+        why_title.setStyleSheet("color: #667085; font-weight: 600; font-size: 11px; margin-top: 4px;")
         layout.addWidget(why_title)
 
         why_desc = QLabel(insight_data.get("explanation", ""))
-        why_desc.setStyleSheet("color: #F1F5F9; font-size: 13px; line-height: 1.4;")
+        why_desc.setStyleSheet("color: #172033; font-size: 13px; line-height: 1.4;")
         why_desc.setWordWrap(True)
         layout.addWidget(why_desc)
 
         # 4. Contributing Factors (Distinguished from guaranteed proof)
         cause_title = QLabel("3. Plausible Contributing Factors (Advisory):")
-        cause_title.setStyleSheet("color: #94A3B8; font-weight: 600; font-size: 11px;")
+        cause_title.setStyleSheet("color: #667085; font-weight: 600; font-size: 11px;")
         layout.addWidget(cause_title)
 
         cause_desc = QLabel(insight_data.get("possible_cause", "No specific rogue processes identified."))
-        cause_desc.setStyleSheet("color: #CBD5E1; font-size: 12px; font-style: italic;")
+        cause_desc.setStyleSheet("color: #667085; font-size: 12px; font-style: italic;")
         cause_desc.setWordWrap(True)
         layout.addWidget(cause_desc)
 
         # 5. Recommendation & Verification
         action_box = QFrame()
-        action_box.setStyleSheet("background-color: #172740; border-left: 3px solid #4F8CFF; border-radius: 4px; padding: 10px;")
+        action_box.setStyleSheet("background-color: #172740; border-left: 3px solid #2563EB; border-radius: 4px; padding: 10px;")
         action_layout = QVBoxLayout(action_box)
         action_layout.setContentsMargins(6, 4, 6, 4)
         action_layout.setSpacing(4)
 
         rec_title = QLabel("4. Actionable Next Step & Verification:")
-        rec_title.setStyleSheet("color: #60A5FA; font-weight: 600; font-size: 11px;")
+        rec_title.setStyleSheet("color: #2563EB; font-weight: 600; font-size: 11px;")
         rec_desc = QLabel(insight_data.get("recommendation", "Continue normal usage."))
-        rec_desc.setStyleSheet("color: #FFFFFF; font-size: 13px; font-weight: 500;")
+        rec_desc.setStyleSheet("color: #344054; font-size: 13px; font-weight: 500;")
         rec_desc.setWordWrap(True)
 
         verify_desc = QLabel("<b>Verification:</b> Observe resource history after action to verify whether usage normalizes.")
-        verify_desc.setStyleSheet("color: #94A3B8; font-size: 11px;")
+        verify_desc.setStyleSheet("color: #667085; font-size: 11px;")
 
         action_layout.addWidget(rec_title)
         action_layout.addWidget(rec_desc)
@@ -112,19 +112,19 @@ class InsightCard(QFrame):
         # 6. Confidence & Expandable Technical Details
         footer_layout = QHBoxLayout()
         conf_lbl = QLabel(f"Confidence: {insight_data.get('confidence_label', 'High')}")
-        conf_lbl.setStyleSheet("color: #38BDF8; font-size: 11px; font-weight: 600;")
+        conf_lbl.setStyleSheet("color: #0891B2; font-size: 11px; font-weight: 600;")
         footer_layout.addWidget(conf_lbl)
         footer_layout.addStretch()
 
         self.toggle_btn = QPushButton("Show Technical Evidence ▼")
-        self.toggle_btn.setStyleSheet("background: transparent; color: #94A3B8; border: none; font-size: 11px;")
+        self.toggle_btn.setStyleSheet("background: transparent; color: #667085; border: none; font-size: 11px;")
         self.toggle_btn.clicked.connect(self._toggle_evidence)
         footer_layout.addWidget(self.toggle_btn)
         layout.addLayout(footer_layout)
 
         # Collapsible Evidence Box
         self.evidence_box = QFrame()
-        self.evidence_box.setStyleSheet("background-color: #0F172A; border: 1px solid #1E293B; border-radius: 6px; padding: 10px;")
+        self.evidence_box.setStyleSheet("background-color: #0F172A; border: 1px solid #172033; border-radius: 6px; padding: 10px;")
         self.evidence_box.setVisible(False)
         ev_layout = QVBoxLayout(self.evidence_box)
         
@@ -136,7 +136,7 @@ class InsightCard(QFrame):
                 evidence_dict = {}
 
         evidence_str = json.dumps(evidence_dict, indent=2)
-        ev_lbl = QLabel(f"<pre style='color: #38BDF8; font-family: monospace; font-size: 11px;'>{evidence_str}</pre>")
+        ev_lbl = QLabel(f"<pre style='color: #0891B2; font-family: monospace; font-size: 11px;'>{evidence_str}</pre>")
         ev_lbl.setTextInteractionFlags(Qt.TextSelectableByMouse)
         ev_layout.addWidget(ev_lbl)
         layout.addWidget(self.evidence_box)

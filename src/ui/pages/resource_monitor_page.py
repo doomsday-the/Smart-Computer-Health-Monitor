@@ -32,9 +32,9 @@ class ResourceMonitorPage(QWidget):
         header_row = QHBoxLayout()
         title_box = QVBoxLayout()
         title_lbl = QLabel("Real-Time Resource Monitor")
-        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #F8FAFC;")
+        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #172033;")
         sub_lbl = QLabel("Continuous telemetry streaming across CPU cores, Memory allocations, and Storage I/O")
-        sub_lbl.setStyleSheet("color: #94A3B8; font-size: 13px;")
+        sub_lbl.setStyleSheet("color: #667085; font-size: 13px;")
         title_box.addWidget(title_lbl)
         title_box.addWidget(sub_lbl)
         header_row.addLayout(title_box)
@@ -43,7 +43,7 @@ class ResourceMonitorPage(QWidget):
         # Interval combo
         interval_box = QHBoxLayout()
         lbl_int = QLabel("Sampling Interval:")
-        lbl_int.setStyleSheet("color: #94A3B8; font-weight: 600;")
+        lbl_int.setStyleSheet("color: #667085; font-weight: 600;")
         self.combo_interval = QComboBox()
         self.combo_interval.addItems(["1.0s (High Overhead)", "2.0s (Recommended)", "5.0s (Power Saver)", "10.0s (Low Overhead)"])
         self.combo_interval.setCurrentIndex(1)  # 2.0s default
@@ -68,22 +68,22 @@ class ResourceMonitorPage(QWidget):
 
         cpu_header = QHBoxLayout()
         cpu_title = QLabel("Processor (CPU) & Core Telemetry")
-        cpu_title.setStyleSheet("font-size: 16px; font-weight: 700; color: #F8FAFC;")
+        cpu_title.setStyleSheet("font-size: 16px; font-weight: 700; color: #172033;")
         self.cpu_total_lbl = QLabel("Total: 0.0%")
-        self.cpu_total_lbl.setStyleSheet("color: #4F8CFF; font-weight: 700; font-size: 14px;")
+        self.cpu_total_lbl.setStyleSheet("color: #2563EB; font-weight: 700; font-size: 14px;")
         cpu_header.addWidget(cpu_title)
         cpu_header.addStretch()
         cpu_header.addWidget(self.cpu_total_lbl)
         cpu_layout.addLayout(cpu_header)
 
         # Large CPU Live Chart
-        self.cpu_live_chart = RealtimeSparkline(max_points=60, color_hex="#4F8CFF")
+        self.cpu_live_chart = RealtimeSparkline(max_points=60, color_hex="#2563EB")
         self.cpu_live_chart.setFixedHeight(75)
         cpu_layout.addWidget(self.cpu_live_chart)
 
         # Per-core breakdown container
         core_lbl = QLabel("Logical CPU Core Allocation:")
-        core_lbl.setStyleSheet("color: #94A3B8; font-weight: 600; font-size: 12px;")
+        core_lbl.setStyleSheet("color: #667085; font-weight: 600; font-size: 12px;")
         cpu_layout.addWidget(core_lbl)
 
         self.cores_grid = QGridLayout()
@@ -102,15 +102,15 @@ class ResourceMonitorPage(QWidget):
 
         ram_header = QHBoxLayout()
         ram_title = QLabel("RAM System Memory Breakdown")
-        ram_title.setStyleSheet("font-size: 16px; font-weight: 700; color: #F8FAFC;")
+        ram_title.setStyleSheet("font-size: 16px; font-weight: 700; color: #172033;")
         self.ram_detail_lbl = QLabel("Used: 0.0 GB / 0.0 GB")
-        self.ram_detail_lbl.setStyleSheet("color: #38BDF8; font-weight: 700; font-size: 14px;")
+        self.ram_detail_lbl.setStyleSheet("color: #0891B2; font-weight: 700; font-size: 14px;")
         ram_header.addWidget(ram_title)
         ram_header.addStretch()
         ram_header.addWidget(self.ram_detail_lbl)
         ram_layout.addLayout(ram_header)
 
-        self.ram_live_chart = RealtimeSparkline(max_points=60, color_hex="#38BDF8")
+        self.ram_live_chart = RealtimeSparkline(max_points=60, color_hex="#0891B2")
         self.ram_live_chart.setFixedHeight(75)
         ram_layout.addWidget(self.ram_live_chart)
 
@@ -118,7 +118,7 @@ class ResourceMonitorPage(QWidget):
             "Physical memory allocation directly affects virtual memory paging. "
             "When RAM usage approaches 85%, Windows or Linux actively swaps inactive pages to disk."
         )
-        self.ram_desc.setStyleSheet("color: #94A3B8; font-size: 12px;")
+        self.ram_desc.setStyleSheet("color: #667085; font-size: 12px;")
         ram_layout.addWidget(self.ram_desc)
         self.content_layout.addWidget(ram_panel)
 
@@ -130,7 +130,7 @@ class ResourceMonitorPage(QWidget):
 
         disk_header = QHBoxLayout()
         disk_title = QLabel("Storage: Capacity Utilization vs. Real-Time I/O Activity")
-        disk_title.setStyleSheet("font-size: 16px; font-weight: 700; color: #F8FAFC;")
+        disk_title.setStyleSheet("font-size: 16px; font-weight: 700; color: #172033;")
         disk_header.addWidget(disk_title)
         disk_header.addStretch()
         disk_layout.addLayout(disk_header)
@@ -139,13 +139,13 @@ class ResourceMonitorPage(QWidget):
             "<b>Architectural Distinction:</b> Disk <i>Capacity</i> reflects persistent space occupied on the partition, "
             "whereas Disk <i>I/O</i> measures active read/write data transfer throughput. They are distinct metrics."
         )
-        distinction_note.setStyleSheet("background-color: #111A29; color: #E2E8F0; padding: 8px 12px; border-radius: 6px; font-size: 12px;")
+        distinction_note.setStyleSheet("background-color: #F8FAFC; color: #344054; padding: 8px 12px; border-radius: 6px; font-size: 12px;")
         distinction_note.setWordWrap(True)
         disk_layout.addWidget(distinction_note)
 
         io_row = QHBoxLayout()
-        self.disk_read_card = StatCard(title="Disk Read Throughput", unit=" MB/s", chart_color="#22C55E")
-        self.disk_write_card = StatCard(title="Disk Write Throughput", unit=" MB/s", chart_color="#F59E0B")
+        self.disk_read_card = StatCard(title="Disk Read Throughput", unit=" MB/s", chart_color="#16A34A")
+        self.disk_write_card = StatCard(title="Disk Write Throughput", unit=" MB/s", chart_color="#D97706")
         io_row.addWidget(self.disk_read_card)
         io_row.addWidget(self.disk_write_card)
         disk_layout.addLayout(io_row)
@@ -181,7 +181,7 @@ class ResourceMonitorPage(QWidget):
                 r = i // cols
                 c = (i % cols) * 2
                 lbl = QLabel(f"Core {i}:")
-                lbl.setStyleSheet("color: #94A3B8; font-size: 11px;")
+                lbl.setStyleSheet("color: #667085; font-size: 11px;")
                 bar = QProgressBar()
                 bar.setRange(0, 100)
                 bar.setFixedHeight(8)

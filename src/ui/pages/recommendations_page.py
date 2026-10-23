@@ -29,9 +29,9 @@ class RecommendationsPage(QWidget):
         header_row = QHBoxLayout()
         title_box = QVBoxLayout()
         title_lbl = QLabel("Actionable Recommendations")
-        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #F8FAFC;")
+        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #172033;")
         sub_lbl = QLabel("Targeted, non-destructive guidance mapped directly to active operating-system insights")
-        sub_lbl.setStyleSheet("color: #94A3B8; font-size: 13px;")
+        sub_lbl.setStyleSheet("color: #667085; font-size: 13px;")
         title_box.addWidget(title_lbl)
         title_box.addWidget(sub_lbl)
         header_row.addLayout(title_box)
@@ -39,7 +39,7 @@ class RecommendationsPage(QWidget):
 
         # Priority Filter
         lbl_prio = QLabel("Priority:")
-        lbl_prio.setStyleSheet("color: #94A3B8; font-weight: 600;")
+        lbl_prio.setStyleSheet("color: #667085; font-weight: 600;")
         self.combo_prio = QComboBox()
         self.combo_prio.addItems(["All Priorities", "High Priority", "Medium Priority", "Low Priority"])
         self.combo_prio.currentIndexChanged.connect(self._render_recommendations)
@@ -50,7 +50,7 @@ class RecommendationsPage(QWidget):
 
         # Advisory Safety Banner
         banner = QFrame()
-        banner.setStyleSheet("background-color: #111A29; border-left: 3px solid #22C55E; border-radius: 4px; padding: 10px 14px;")
+        banner.setStyleSheet("background-color: #F8FAFC; border-left: 3px solid #16A34A; border-radius: 4px; padding: 10px 14px;")
         b_lay = QVBoxLayout(banner)
         b_lay.setContentsMargins(0, 0, 0, 0)
         b_lbl = QLabel(
@@ -58,7 +58,7 @@ class RecommendationsPage(QWidget):
             "forcefully kill system services, or tamper with system registry settings. Recommendations represent safe "
             "advisory guidance for the user."
         )
-        b_lbl.setStyleSheet("color: #E2E8F0; font-size: 12px;")
+        b_lbl.setStyleSheet("color: #344054; font-size: 12px;")
         b_lbl.setWordWrap(True)
         b_lay.addWidget(b_lbl)
         main_layout.addWidget(banner)
@@ -72,7 +72,7 @@ class RecommendationsPage(QWidget):
         self.recs_layout.setSpacing(14)
 
         self.empty_lbl = QLabel("No active recommendations required. Computer resources are balanced and healthy.")
-        self.empty_lbl.setStyleSheet("color: #64748B; font-size: 14px; padding: 40px 0;")
+        self.empty_lbl.setStyleSheet("color: #98A2B3; font-size: 14px; padding: 40px 0;")
         self.empty_lbl.setAlignment(Qt.AlignCenter)
         self.recs_layout.addWidget(self.empty_lbl)
 
@@ -103,7 +103,7 @@ class RecommendationsPage(QWidget):
 
         if not filtered:
             lbl = QLabel("No active recommendations match the selected filter. System is healthy.")
-            lbl.setStyleSheet("color: #64748B; font-size: 14px; padding: 40px 0;")
+            lbl.setStyleSheet("color: #98A2B3; font-size: 14px; padding: 40px 0;")
             lbl.setAlignment(Qt.AlignCenter)
             self.recs_layout.addWidget(lbl)
             return

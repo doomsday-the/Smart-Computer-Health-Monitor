@@ -29,22 +29,22 @@ class ProcessExplorerPage(QWidget):
         header_row = QHBoxLayout()
         title_box = QVBoxLayout()
         title_lbl = QLabel("Process Explorer")
-        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #F8FAFC;")
+        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #172033;")
         sub_lbl = QLabel("Inspect active operating system tasks, thread owners, CPU usage, and memory working sets")
-        sub_lbl.setStyleSheet("color: #94A3B8; font-size: 13px;")
+        sub_lbl.setStyleSheet("color: #667085; font-size: 13px;")
         title_box.addWidget(title_lbl)
         title_box.addWidget(sub_lbl)
         header_row.addLayout(title_box)
         header_row.addStretch()
 
         self.proc_count_lbl = QLabel("Processes: 0")
-        self.proc_count_lbl.setStyleSheet("color: #38BDF8; font-weight: 600; font-size: 13px;")
+        self.proc_count_lbl.setStyleSheet("color: #0891B2; font-weight: 600; font-size: 13px;")
         header_row.addWidget(self.proc_count_lbl)
         layout.addLayout(header_row)
 
         # Scientific Note Banner
         note_box = QFrame()
-        note_box.setStyleSheet("background-color: #111A29; border-left: 3px solid #38BDF8; border-radius: 4px; padding: 8px 12px;")
+        note_box.setStyleSheet("background-color: #F8FAFC; border-left: 3px solid #0891B2; border-radius: 4px; padding: 8px 12px;")
         nb_layout = QVBoxLayout(note_box)
         nb_layout.setContentsMargins(0, 0, 0, 0)
         note_lbl = QLabel(
@@ -52,7 +52,7 @@ class ProcessExplorerPage(QWidget):
             "not evidence of malware or software corruption. Heavy compilation, indexing, or multimedia rendering "
             "legitimately utilizes full core capacity."
         )
-        note_lbl.setStyleSheet("color: #CBD5E1; font-size: 12px;")
+        note_lbl.setStyleSheet("color: #667085; font-size: 12px;")
         note_lbl.setWordWrap(True)
         nb_layout.addWidget(note_lbl)
         layout.addWidget(note_box)
@@ -101,7 +101,7 @@ class ProcessExplorerPage(QWidget):
         self.detail_layout = QHBoxLayout(self.detail_frame)
         self.detail_layout.setContentsMargins(14, 10, 14, 10)
         self.detail_lbl = QLabel("Select a process in the table above to view detailed execution metrics.")
-        self.detail_lbl.setStyleSheet("color: #94A3B8; font-size: 12px;")
+        self.detail_lbl.setStyleSheet("color: #667085; font-size: 12px;")
         self.detail_layout.addWidget(self.detail_lbl)
         layout.addWidget(self.detail_frame)
 

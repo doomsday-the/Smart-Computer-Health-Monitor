@@ -32,9 +32,9 @@ class SettingsPage(QWidget):
         header_row = QHBoxLayout()
         title_box = QVBoxLayout()
         title_lbl = QLabel("Configuration & Threshold Settings")
-        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #F8FAFC;")
+        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #172033;")
         sub_lbl = QLabel("Calibrate diagnostic thresholds, sampling intervals, and database retention rules")
-        sub_lbl.setStyleSheet("color: #94A3B8; font-size: 13px;")
+        sub_lbl.setStyleSheet("color: #667085; font-size: 13px;")
         title_box.addWidget(title_lbl)
         title_box.addWidget(sub_lbl)
         header_row.addLayout(title_box)
@@ -65,7 +65,7 @@ class SettingsPage(QWidget):
         thresh_layout.setSpacing(12)
 
         t_title = QLabel("1. Diagnostic Resource Thresholds (%)")
-        t_title.setStyleSheet("font-size: 15px; font-weight: 700; color: #F8FAFC;")
+        t_title.setStyleSheet("font-size: 15px; font-weight: 700; color: #172033;")
         thresh_layout.addWidget(t_title)
 
         # CPU Thresholds
@@ -93,7 +93,7 @@ class SettingsPage(QWidget):
         timing_layout.setSpacing(12)
 
         time_title = QLabel("2. Monitoring Cadence & Duplicate Suppression")
-        time_title.setStyleSheet("font-size: 15px; font-weight: 700; color: #F8FAFC;")
+        time_title.setStyleSheet("font-size: 15px; font-weight: 700; color: #172033;")
         timing_layout.addWidget(time_title)
 
         self.interval_spin = self._add_double_row(timing_layout, "Telemetry Sampling Interval (seconds):", 0.5, 60.0, self.settings.monitoring_interval_sec)
@@ -110,11 +110,11 @@ class SettingsPage(QWidget):
         maint_layout.setSpacing(12)
 
         m_title = QLabel("3. Database Maintenance")
-        m_title.setStyleSheet("font-size: 15px; font-weight: 700; color: #F8FAFC;")
+        m_title.setStyleSheet("font-size: 15px; font-weight: 700; color: #172033;")
         maint_layout.addWidget(m_title)
 
         m_desc = QLabel("Safely clear local historical metric records and alerts stored in SQLite.")
-        m_desc.setStyleSheet("color: #94A3B8; font-size: 12px;")
+        m_desc.setStyleSheet("color: #667085; font-size: 12px;")
         maint_layout.addWidget(m_desc)
 
         btn_clear = QPushButton("Clear Historical Telemetry Data")
@@ -130,7 +130,7 @@ class SettingsPage(QWidget):
     def _add_double_row(self, layout: QVBoxLayout, label_text: str, min_val: float, max_val: float, cur_val: float) -> QDoubleSpinBox:
         row = QHBoxLayout()
         lbl = QLabel(label_text)
-        lbl.setStyleSheet("color: #E2E8F0; font-size: 13px;")
+        lbl.setStyleSheet("color: #344054; font-size: 13px;")
         spin = QDoubleSpinBox()
         spin.setRange(min_val, max_val)
         spin.setValue(cur_val)
@@ -144,7 +144,7 @@ class SettingsPage(QWidget):
     def _add_int_row(self, layout: QVBoxLayout, label_text: str, min_val: int, max_val: int, cur_val: int) -> QSpinBox:
         row = QHBoxLayout()
         lbl = QLabel(label_text)
-        lbl.setStyleSheet("color: #E2E8F0; font-size: 13px;")
+        lbl.setStyleSheet("color: #344054; font-size: 13px;")
         spin = QSpinBox()
         spin.setRange(min_val, max_val)
         spin.setValue(cur_val)

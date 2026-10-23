@@ -25,9 +25,9 @@ class AboutPage(QWidget):
         # Header
         title_box = QVBoxLayout()
         title_lbl = QLabel("About Project & Research Specification")
-        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #F8FAFC;")
+        title_lbl.setStyleSheet("font-size: 22px; font-weight: 700; color: #172033;")
         sub_lbl = QLabel("Smart Computer Health Monitor — Academic Operating Systems Capstone")
-        sub_lbl.setStyleSheet("color: #38BDF8; font-size: 13px;")
+        sub_lbl.setStyleSheet("color: #0891B2; font-size: 13px;")
         title_box.addWidget(title_lbl)
         title_box.addWidget(sub_lbl)
         main_layout.addLayout(title_box)
@@ -59,7 +59,7 @@ class AboutPage(QWidget):
             body=(
                 "Traditional monitoring stops at data collection. This project implements a dedicated "
                 "<b>Interpretation Layer</b> governed by an evidence-based five-question framework:<br/>"
-                "<ol style='color: #E2E8F0;'>"
+                "<ol style='color: #344054;'>"
                 "<li><b>What is happening to my computer?</b> (Abnormal resource detection)</li>"
                 "<li><b>Which resource is experiencing a problem?</b> (Subsystem isolation)</li>"
                 "<li><b>What evidence supports this assessment?</b> (Direct empirical measurements & persistence)</li>"
@@ -77,7 +77,7 @@ class AboutPage(QWidget):
         p3.setProperty("class", "card-panel")
         p3_lay = QVBoxLayout(p3)
         p3_title = QLabel("3. Detected Hardware & Operating System Platform")
-        p3_title.setStyleSheet("font-size: 15px; font-weight: 700; color: #F8FAFC; margin-bottom: 8px;")
+        p3_title.setStyleSheet("font-size: 15px; font-weight: 700; color: #172033; margin-bottom: 8px;")
         p3_lay.addWidget(p3_title)
 
         grid = QGridLayout()
@@ -98,9 +98,9 @@ class AboutPage(QWidget):
             r = i // 2
             c = (i % 2) * 2
             lbl_k = QLabel(k)
-            lbl_k.setStyleSheet("color: #94A3B8; font-weight: 600; font-size: 12px;")
+            lbl_k.setStyleSheet("color: #667085; font-weight: 600; font-size: 12px;")
             lbl_v = QLabel(v)
-            lbl_v.setStyleSheet("color: #F8FAFC; font-size: 12px;")
+            lbl_v.setStyleSheet("color: #172033; font-size: 12px;")
             grid.addWidget(lbl_k, r, c)
             grid.addWidget(lbl_v, r, c + 1)
 
@@ -130,9 +130,9 @@ class AboutPage(QWidget):
         lay = QVBoxLayout(frame)
         lay.setSpacing(8)
         t_lbl = QLabel(title)
-        t_lbl.setStyleSheet("font-size: 15px; font-weight: 700; color: #F8FAFC;")
+        t_lbl.setStyleSheet("font-size: 15px; font-weight: 700; color: #172033;")
         b_lbl = QLabel(body)
-        b_lbl.setStyleSheet("color: #CBD5E1; font-size: 13px; line-height: 1.5;")
+        b_lbl.setStyleSheet("color: #667085; font-size: 13px; line-height: 1.5;")
         b_lbl.setWordWrap(True)
         lay.addWidget(t_lbl)
         lay.addWidget(b_lbl)
